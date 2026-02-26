@@ -10,3 +10,11 @@ class Department:
             "DepartmentName": self.DepartmentName,
             "Location": self.Location
         }
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            DepartmentID=data.get("DepartmentID"),
+            DepartmentName=data.get("DepartmentName"),
+            Location=data.get("Location"),
+        )
