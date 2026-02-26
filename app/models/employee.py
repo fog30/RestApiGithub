@@ -14,3 +14,13 @@ class Employee:
             "Gender": self.Gender,
             "DateOfBirth": self.DateOfBirth
         }
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            EmployeeID=data.get("EmployeeID"),
+            FirstName=data.get("FirstName"),
+            LastName=data.get("LastName"),
+            Gender=data.get("Gender"),
+            DateOfBirth=data.get("DateOfBirth"),
+        )
