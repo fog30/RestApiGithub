@@ -1,3 +1,6 @@
+from app.models.employee import Employee
+
+
 class EmployeeService:
     def __init__(self, repo):
         self.repo = repo
@@ -10,8 +13,16 @@ class EmployeeService:
         return emp.to_dict() if emp else None
 
     def create_employee(self, data):
-        employee = self.repo.create(data)
-        return employee.to_dict()
+        employee = Employee(
+            EmployeeID=data.get("EmployeeID"),
+            FirstName=data.get("FirstName"),
+            LastName=data.get("LastName"),
+            Gender=data.get("Gender"),
+            DateOfBirth=data.get("DateOfBirth"),
+        )
+
+        created = self.repo.create(employee)
+        return created.to_dict()
 
     def update_employee(self, employee_id, data):
         emp = self.repo.update(employee_id, data)
