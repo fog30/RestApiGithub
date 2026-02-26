@@ -14,3 +14,13 @@ class Salary:
             "Bonus": self.Bonus,
             "Allowances": self.Allowances
         }
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            SalaryID=data.get("SalaryID"),
+            EmployeeID=data.get("EmployeeID"),
+            BasicSalary=data.get("BasicSalary"),
+            Bonus=data.get("Bonus"),
+            Allowances=data.get("Allowances"),
+        )
